@@ -7,9 +7,10 @@ app = FastAPI()
 
 model = whisper.load_model("base")
 
-@app.get("/")
+@app.get("/", response_class=FileResponse)
 def root():
-    return {"message": "Backend Whisper OK"}
+    # Retourne le fichier index.html situé dans /app (racine du projet dans le container)
+    return "index.html"
 
 @app.post("/transcribe")
 async def transcribe_audio(file: UploadFile = File(...)):
