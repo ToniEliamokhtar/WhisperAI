@@ -1,3 +1,6 @@
 torch
 openai-whisper
 tiktoken
+fastapi
+uvicorn
+python-multipart
